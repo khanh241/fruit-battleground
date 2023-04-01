@@ -1,3 +1,4 @@
+repeat wait() until game:IsLoaded()
 local plr = game.Players.LocalPlayer
 local cols = game.Workspace.Areas.Colloseum.CFrame
 local dress = game.Workspace.Areas.Dressrosa.CFrame
@@ -84,3 +85,33 @@ local Window = Rayfield:CreateWindow({
     -- The variable (Text) is a string for the value in the text box
     end,
     })
+
+    local Tab2 = Window:CreateTab("Fruit", 4483362458) -- Title, Image
+    getgenv().a = false
+    local Toggle = Tab2:CreateToggle({
+        Name = "Auto Spin Fruit",
+        CurrentValue = false,
+        Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().a = Value
+        end,
+    })
+    spawn(function()
+        while wait() do
+            if getgenv().a then
+                local args = {
+                    [1] = "FruitsHandler",
+                    [2] = "Spin",
+                    [3] = {}
+                }
+                
+                game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+            end
+        end
+    end)   
+                
+
+
+
+
+
