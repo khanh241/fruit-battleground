@@ -1,0 +1,57 @@
+local plr = game.Players.LocalPlayer
+local cols = game.Workspace.Areas.Colloseum.CFrame
+local dress = game.Workspace.Areas.Dressrosa.CFrame
+local forest = game.Workspace.Areas.Forest.CFrame
+function teleport(location)
+    plr.Character.HumanoidRootPart.CFrame = location
+end
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+    Name = "KhanhHub | kpt#????",
+    LoadingTitle = "KhanhHub",
+    LoadingSubtitle = "by kpt#????",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Big Hub"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD.
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Khanh Hub",
+       Subtitle = "Key System",
+       Note = "Join the discord (discord.gg/dadad)",
+       FileName = "itsfine",
+       SaveKey = true,
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = "deptrai"
+    }
+    })
+    local Tab = Window:CreateTab("Teleport", 4483362458) -- Title, Image
+    local Section = Tab:CreateSection("Places")
+
+    local Button = Tab:CreateButton({
+        Name = "Colloseum",
+        Callback = function()
+            teleport(cols)
+        -- The function that takes place when the button is pressed
+        end,
+    })
+    local Button1 = Tab:CreateButton({
+        Name = "Dressrosa",
+        Callback = function()
+            teleport(dress)
+        -- The function that takes place when the button is pressed
+        end,
+    })
+    local Button2 = Tab:CreateButton({
+        Name = "Forest",
+        Callback = function()
+            teleport(forest)
+        -- The function that takes place when the button is pressed
+        end,
+    })
