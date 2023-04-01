@@ -2,8 +2,15 @@ local plr = game.Players.LocalPlayer
 local cols = game.Workspace.Areas.Colloseum.CFrame
 local dress = game.Workspace.Areas.Dressrosa.CFrame
 local forest = game.Workspace.Areas.Forest.CFrame
+local hum = plr.Character.Humanoid
 function teleport(location)
     plr.Character.HumanoidRootPart.CFrame = location
+end
+function walkspeed(Text)
+    hum.WalkSpeed = Text
+end
+function jumppower(Text)
+    hum.JumpPower = Text
 end
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
@@ -31,7 +38,7 @@ local Window = Rayfield:CreateWindow({
        Key = "deptrai"
     }
     })
-    local Tab = Window:CreateTab("Teleport", 4483362458) -- Title, Image
+    local Tab = Window:CreateTab("Teleport") -- Title, Image
     local Section = Tab:CreateSection("Places")
 
     local Button = Tab:CreateButton({
@@ -54,4 +61,26 @@ local Window = Rayfield:CreateWindow({
             teleport(forest)
         -- The function that takes place when the button is pressed
         end,
+    })
+
+    local Tab1 = Window:CreateTab("Character") -- Title, Image
+    local Input = Tab1:CreateInput({
+    Name = "Speed",
+    PlaceholderText = "Type amount of increase in Walk Speed",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        walkspeed(Text)
+    -- The function that takes place when the input is changed
+    -- The variable (Text) is a string for the value in the text box
+    end,
+    })
+    local Input = Tab1:CreateInput({
+    Name = "Jump Power",
+    PlaceholderText = "Type amount of increase in Jump Power",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+       jumppower(Text)
+    -- The function that takes place when the input is changed
+    -- The variable (Text) is a string for the value in the text box
+    end,
     })
