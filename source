@@ -5,6 +5,7 @@ local dress = game.Workspace.Areas.Dressrosa.CFrame
 local forest = game.Workspace.Areas.Forest.CFrame
 local hum = plr.Character.Humanoid
 local safeplace = CFrame.new(-1195.0758056640625, 814.0081787109375, -1069.35009765625)
+local tb = plr.Backpack:GetChildren()
 function teleport(location)
     plr.Character.HumanoidRootPart.CFrame = location
 end
@@ -120,7 +121,7 @@ local Window = Rayfield:CreateWindow({
     local Tab3 = Window:CreateTab("Farm", 4483362458) -- Title, Image
     getgenv().b = false
     local Toggle = Tab3:CreateToggle({
-        Name = "Auto Farm Fruit: Sand",
+        Name = "Auto Farm Fruit",
         CurrentValue = false,
         Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
@@ -130,110 +131,119 @@ local Window = Rayfield:CreateWindow({
     spawn(function()
         while wait() do
             if getgenv().b then
-                wait(1)
-                local args = {
-                    [1] = "Sand",
-                    [2] = "Slicer",
-                    [3] = {}
-                }
-                
-                game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
-                wait(1)
-                local args = {
-                    [1] = "Sand",
-                    [2] = "Spada",
-                    [3] = {}
-                }
-                
-                game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
-                wait(1)
-                local args = {
-                    [1] = "Sand",
-                    [2] = "Swamp",
-                    [3] = {}
-                }
-                
-                game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
-                wait(1)
-                local args = {
-                    [1] = "Sand",
-                    [2] = "Sables: Pesado",
-                    [3] = {}
-                }
-                
-                game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+                for i,v in pairs(tb) do
+                    if v.Name == "Jet Pistol" then
+                        wait(1)
+                        local args = {
+                            [1] = "TSRubber",
+                            [2] = "JetPistol",
+                            [3] = {}
+                        }
+
+                        game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
+
+                        wait(1)
+                        local args = {
+                            [1] = "TSRubber",
+                            [2] = "JetGatling",
+                            [3] = {
+                                ["MouseRay"] = {
+                                    ["Normal"] = Vector3.new(0, 1, 0),
+                                    ["Direction"] = Vector3.new(199.90771484375, -87.57386779785156, 205.834228515625),
+                                    ["Origin"] = Vector3.new(390.2972412109375, 743.8017578125, -677.593994140625),
+                                    ["Instance"] = workspace.Map.Model.Part,
+                                    ["Distance"] = 46.41228103637695,
+                                    ["Position"] = Vector3.new(421.2244873046875, 730.25341796875, -645.7498779296875),
+                                    ["Material"] = Enum.Material.Foil
+                                }
+                            }
+                        }
+
+                        game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
+
+                        wait(1)
+                        local args = {
+                            [1] = "TSRubber",
+                            [2] = "RedHawk",
+                            [3] = {}
+                        }
+
+                        game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
+
+                        wait(1)
+                        local args = {
+                            [1] = "TSRubber",
+                            [2] = "GrizzlyMagnum",
+                            [3] = {
+                                ["MouseRay"] = {
+                                    ["Normal"] = Vector3.new(0, 1, 0),
+                                    ["Direction"] = Vector3.new(188.22845458984375, -60.72073745727539, 225.57269287109375),
+                                    ["Origin"] = Vector3.new(445.3796081542969, 739.1216430664062, -634.8267211914062),
+                                    ["Instance"] = workspace.Map.Part,
+                                    ["Distance"] = 40.10932159423828,
+                                    ["Position"] = Vector3.new(470.5453186035156, 731.00341796875, -604.6681518554688),
+                                    ["Material"] = Enum.Material.Concrete
+                                }
+                            }
+                        }
+
+                        game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
+                    elseif v.Name == "Slicer" then
+                        wait(1)
+                        local args = {
+                            [1] = "Sand",
+                            [2] = "Slicer",
+                            [3] = {}
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+                        wait(1)
+                        local args = {
+                            [1] = "Sand",
+                            [2] = "Spada",
+                            [3] = {}
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+                        wait(1)
+                        local args = {
+                            [1] = "Sand",
+                            [2] = "Swamp",
+                            [3] = {}
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+                        wait(1)
+                        local args = {
+                            [1] = "Sand",
+                            [2] = "Sables: Pesado",
+                            [3] = {}
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+                    elseif v.Name == "Light Kick" then
+                        wait(1)
+                        local args = {
+                            [1] = "Light",
+                            [2] = "LightKick",
+                            [3] = {
+                                ["MouseRay"] = {
+                                    ["Normal"] = Vector3.new(0, 1, 0),
+                                    ["Direction"] = Vector3.new(291.5396728515625, -48.07402801513672, -51.898963928222656),
+                                    ["Origin"] = Vector3.new(611.4015502929688, 755.869140625, 381.962890625),
+                                    ["Instance"] = workspace.Map.Model.Part,
+                                    ["Distance"] = 159.8517303466797,
+                                    ["Position"] = Vector3.new(766.7453002929688, 730.25341796875, 354.30908203125),
+                                    ["Material"] = Enum.Material.Foil
+                                }
+                            }
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replicator:InvokeServer(unpack(args))
+                    end
+                end
             end
         end
     end)
-    getgenv().c = false
-    local Toggle = Tab3:CreateToggle({
-        Name = "Auto Farm Fruit: TSRubber",
-        CurrentValue = false,
-        Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-        Callback = function(Value)
-            getgenv().c = Value
-        end,
-    })
-    spawn(function()
-        while wait() do
-            if getgenv().c then
-                --tsrubber
-                wait(1)
-                local args = {
-                    [1] = "TSRubber",
-                    [2] = "JetPistol",
-                    [3] = {}
-                }
 
-                game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
-
-                wait(1)
-                local args = {
-                    [1] = "TSRubber",
-                    [2] = "JetGatling",
-                    [3] = {
-                        ["MouseRay"] = {
-                            ["Normal"] = Vector3.new(0, 1, 0),
-                            ["Direction"] = Vector3.new(199.90771484375, -87.57386779785156, 205.834228515625),
-                            ["Origin"] = Vector3.new(390.2972412109375, 743.8017578125, -677.593994140625),
-                            ["Instance"] = workspace.Map.Model.Part,
-                            ["Distance"] = 46.41228103637695,
-                            ["Position"] = Vector3.new(421.2244873046875, 730.25341796875, -645.7498779296875),
-                            ["Material"] = Enum.Material.Foil
-                        }
-                    }
-                }
-
-                game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
-
-                wait(1)
-                local args = {
-                    [1] = "TSRubber",
-                    [2] = "RedHawk",
-                    [3] = {}
-                }
-
-                game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
-
-                wait(1)
-                local args = {
-                    [1] = "TSRubber",
-                    [2] = "GrizzlyMagnum",
-                    [3] = {
-                        ["MouseRay"] = {
-                            ["Normal"] = Vector3.new(0, 1, 0),
-                            ["Direction"] = Vector3.new(188.22845458984375, -60.72073745727539, 225.57269287109375),
-                            ["Origin"] = Vector3.new(445.3796081542969, 739.1216430664062, -634.8267211914062),
-                            ["Instance"] = workspace.Map.Part,
-                            ["Distance"] = 40.10932159423828,
-                            ["Position"] = Vector3.new(470.5453186035156, 731.00341796875, -604.6681518554688),
-                            ["Material"] = Enum.Material.Concrete
-                        }
-                    }
-                }
-
-                game:GetService("ReplicatedStorage").ReplicatorNoYield:FireServer(unpack(args))
-            end
-        end
-    end)
                     
